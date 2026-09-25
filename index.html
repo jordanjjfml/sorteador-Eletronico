@@ -9,26 +9,58 @@
 </head>
 
 <body>
+    <main class="app">
+        <section class="card">
+            <img class="brand-image" src="img/Jordan sorteio.jpeg" alt="Ilustração do sorteador">
 
-    <img src="img/Jordan sorteio.jpeg" alt="Sorteador">
+            <h1>Bem-vindo ao Sorteador!</h1>
+            <p>Escolha se quer sortear números ou nomes, personalize o intervalo e aproveite uma experiência mais dinâmica.</p>
 
-    <section>
+            <div class="controls">
+                <label class="field">
+                    <span>Tipo de sorteio</span>
+                    <select id="tipoSorteio">
+                        <option value="numero">Número</option>
+                        <option value="nome">Nome</option>
+                    </select>
+                </label>
 
-        <h2>Bem-vindo ao Sorteador!</h2>
-        <p>Este é um aplicativo simples para sortear números de 1 a 100. Clique no botão abaixo para gerar um número
-            aleatório.</p>
+                <div id="configNumerica" class="config-group">
+                    <label class="field">
+                        <span>Mínimo</span>
+                        <input type="number" id="min" placeholder="Mínimo" value="1">
+                    </label>
 
+                    <label class="field">
+                        <span>Máximo</span>
+                        <input type="number" id="max" placeholder="Máximo" value="100">
+                    </label>
+                </div>
 
-        <section class="section-form">
-            <input type="number" id="min" placeholder="Mínimo" value="1">
-            <input type="number" id="max" placeholder="Máximo" value="100">
-            <button onclick="sortear()">Sortear</button>
+                <div id="configNome" class="config-group hidden">
+                    <label class="field field-full">
+                        <span>Nomes</span>
+                        <textarea id="nomes" rows="4" placeholder="Ana, Bruno, Carlos, Daniela"></textarea>
+                    </label>
+                </div>
+
+                <label class="checkbox-row">
+                    <input type="checkbox" id="semRepetir">
+                    <span>Sem repetir no mesmo ciclo</span>
+                </label>
+
+                <button id="sortearBtn" type="button">Sortear</button>
+            </div>
+
+            <div class="resultado-wrapper" aria-live="polite">
+                <span class="resultado-label">Resultado</span>
+                <div id="resultado" class="resultado">--</div>
+            </div>
         </section>
+    </main>
 
-    </section>
-
+    <script type="module" src="raffle-core.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
-
-<script src="script.js"></script>
 
 </html>
